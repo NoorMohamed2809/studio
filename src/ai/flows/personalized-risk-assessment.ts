@@ -12,8 +12,6 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const PersonalizedRiskAssessmentInputSchema = z.object({
-  age: z.number().describe("The user's age."),
-  gender: z.enum(['female', 'male', 'other']).describe("The user's gender."),
   medicalHistory: z
     .string()
     .describe('Detailed medical history of the user.'),
@@ -67,8 +65,6 @@ const prompt = ai.definePrompt({
 
   Analyze the provided user information to determine the user's risk level, identify contributing risk factors, and provide personalized recommendations for risk reduction.
 
-  User Age: {{{age}}}
-  User Gender: {{{gender}}}
   Medical History: {{{medicalHistory}}}
   Other Medical Issues: {{{otherMedicalIssues}}}
   Lifestyle Factors: {{{lifestyleFactors}}}
