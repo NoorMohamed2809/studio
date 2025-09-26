@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "healthy-lifestyle",
+      "description": "A woman enjoying a healthy meal.",
+      "imageUrl": "https://images.unsplash.com/photo-1606756790138-261d2b21cd75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoZWFsdGh5JTIwZm9vZHxlbnwwfHx8fDE3NTg4MzQ1OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "healthy food"
+    },
+    {
+      "id": "heart-health",
+      "description": "An abstract representation of a healthy heart.",
+      "imageUrl": "https://images.unsplash.com/photo-1463740839922-2d3b7e426a56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoZWFydCUyMGhlYWx0aHxlbnwwfHx8fDE3NTg4Mzc2MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "heart health"
+    },
+    {
+      "id": "medical-checkup",
+      "description": "A doctor listening to a patient's heartbeat.",
+      "imageUrl": "https://images.unsplash.com/photo-1638202993928-7267aad84c31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkb2N0b3IlMjBwYXRpZW50fGVufDB8fHx8MTc1ODgxNjYwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor patient"
+    },
+    {
+      "id": "exercise-woman",
+      "description": "A woman exercising outdoors.",
+      "imageUrl": "https://images.unsplash.com/photo-1699627417872-d27f7fa0b541?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b21hbiUyMGpvZ2dpbmd8ZW58MHx8fHwxNzU4ODcyOTIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman jogging"
+    },
+    {
+      "id": "symptom-awareness",
+      "description": "A person looking thoughtful about their health.",
+      "imageUrl": "https://images.unsplash.com/photo-1502323777036-f29e3972d82f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b21hbiUyMHRoaW5raW5nfGVufDB8fHx8MTc1ODgyMDIyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman thinking"
+    },
+    {
+      "id": "preventive-care",
+      "description": "A collage of preventive care items like an apple, a stethoscope, and running shoes.",
+      "imageUrl": "https://images.unsplash.com/photo-1620389701401-0331102be9bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoZWFsdGglMjBjb2xsYWdlfGVufDB8fHx8MTc1ODg3MjkyMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "health collage"
+    }
+  ]
 }
