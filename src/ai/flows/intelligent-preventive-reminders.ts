@@ -14,6 +14,10 @@ import {z} from 'genkit';
 
 const IntelligentPreventiveRemindersInputSchema = z.object({
   userId: z.string().describe('The ID of the user receiving the reminder.'),
+  age: z.number().describe('The age of the user.'),
+  gender: z
+    .enum(['female', 'male', 'other'])
+    .describe('The gender of the user.'),
   reminderType: z
     .enum(['checkup', 'medication', 'lifestyle'])
     .describe('The type of reminder to send.'),
@@ -50,7 +54,7 @@ const prompt = ai.definePrompt({
   output: {schema: IntelligentPreventiveRemindersOutputSchema},
   prompt: `You are an AI assistant designed to generate personalized and timely reminders for users to improve their preventive care.
 
-  Based on the user's medical history: {{{medicalHistory}}}, lifestyle factors: {{{lifestyleFactors}}}, and the specific reminder type: {{{reminderType}}}, create a reminder message and suggest an optimal delivery time.
+  Based on the user's age: {{{age}}}, gender: {{{gender}}}, medical history: {{{medicalHistory}}}, lifestyle factors: {{{lifestyleFactors}}}, and the specific reminder type: {{{reminderType}}}, create a reminder message and suggest an optimal delivery time.
 
   The reminder message should be concise, encouraging, and relevant to the user's needs.
   The delivery time should be a specific time of day (e.g., "9:00 AM") and should consider when the user is most likely to take action. Take into account the user's lifestyle and the type of reminder.

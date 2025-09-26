@@ -39,6 +39,8 @@ import { Loader, Bell, Clock, MessageSquare, Sparkles } from "lucide-react";
 
 const formSchema = z.object({
   reminderType: z.enum(["checkup", "medication", "lifestyle"]),
+  age: z.coerce.number().min(1, "Age is required."),
+  gender: z.enum(["female", "male", "other"]),
   medicalHistory: z.string().min(1, "This field is required."),
   lifestyleFactors: z.string().min(1, "This field is required."),
   details: z.string().optional(),
@@ -55,6 +57,8 @@ export default function RemindersPage() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       reminderType: "lifestyle",
+      age: 45,
+      gender: "female",
       medicalHistory: "High cholesterol, currently on statins.",
       lifestyleFactors: "Works a 9-5 office job, tries to walk 30 mins a day.",
       details: "Remind me to take a short walk during my lunch break.",
@@ -96,6 +100,47 @@ export default function RemindersPage() {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="age"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Age</FormLabel>
+                      <FormControl>
+                        <Input type="number" placeholder="e.g., 45" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="gender"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Gender</FormLabel>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select gender" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="female">Female</SelectItem>
+                          <SelectItem value="male">Male</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
               <FormField
                 control={form.control}
                 name="reminderType"
