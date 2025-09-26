@@ -25,19 +25,6 @@ export default function SymptomLogPage() {
   const [stress, setStress] = useState(4);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const getEmojiForLevel = (level: number, category: 'fatigue' | 'nausea' | 'backPain' | 'sleep' | 'stress') => {
-    if (category === 'sleep') {
-      if (level <= 3) return '😫';
-      if (level <= 7) return '😴';
-      return '😊';
-    }
-    if (level === 0) return '😊';
-    if (level <= 3) return '🙂';
-    if (level <= 7) return '😐';
-    if (level <=9) return '😟';
-    return '😫';
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the data to your backend
@@ -97,8 +84,8 @@ export default function SymptomLogPage() {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="fatigue" className="flex items-center">
-                Fatigue Level: {fatigue} <span className="text-xl ml-2">{getEmojiForLevel(fatigue, 'fatigue')}</span>
+            <Label htmlFor="fatigue">
+                Fatigue Level: {fatigue}
             </Label>
             <Slider
               id="fatigue"
@@ -115,8 +102,8 @@ export default function SymptomLogPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="nausea" className="flex items-center">
-                Nausea Level: {nausea} <span className="text-xl ml-2">{getEmojiForLevel(nausea, 'nausea')}</span>
+            <Label htmlFor="nausea">
+                Nausea Level: {nausea}
             </Label>
             <Slider
               id="nausea"
@@ -133,8 +120,8 @@ export default function SymptomLogPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="back-pain" className="flex items-center">
-                Back Pain Level: {backPain} <span className="text-xl ml-2">{getEmojiForLevel(backPain, 'backPain')}</span>
+            <Label htmlFor="back-pain">
+                Back Pain Level: {backPain}
             </Label>
             <Slider
               id="back-pain"
@@ -151,8 +138,8 @@ export default function SymptomLogPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="sleep" className="flex items-center">
-                Sleep Quality: {sleepQuality} <span className="text-xl ml-2">{getEmojiForLevel(sleepQuality, 'sleep')}</span>
+            <Label htmlFor="sleep">
+                Sleep Quality: {sleepQuality}
             </Label>
             <Slider
               id="sleep"
@@ -169,8 +156,8 @@ export default function SymptomLogPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="stress" className="flex items-center">
-                Stress Level: {stress} <span className="text-xl ml-2">{getEmojiForLevel(stress, 'stress')}</span>
+            <Label htmlFor="stress">
+                Stress Level: {stress}
             </Label>
             <Slider
               id="stress"
