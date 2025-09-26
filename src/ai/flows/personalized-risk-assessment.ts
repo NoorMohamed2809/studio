@@ -12,6 +12,8 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const PersonalizedRiskAssessmentInputSchema = z.object({
+  age: z.number().describe("The user's age."),
+  gender: z.enum(['female', 'male', 'other']).describe("The user's gender."),
   medicalHistory: z
     .string()
     .describe('Detailed medical history of the user.'),
@@ -21,6 +23,10 @@ const PersonalizedRiskAssessmentInputSchema = z.object({
   dailyLogs: z
     .string()
     .describe('A summary of the user\'s daily health logs, including fatigue, nausea, back pain, sleep quality, stress levels, heart rate, and blood pressure.'),
+  otherMedicalIssues: z
+    .string()
+    .optional()
+    .describe('Any other medical issues the user is facing.'),
 });
 export type PersonalizedRiskAssessmentInput = z.infer<
   typeof PersonalizedRiskAssessmentInputSchema
@@ -59,9 +65,12 @@ const prompt = ai.definePrompt({
   output: {schema: PersonalizedRiskAssessmentOutputSchema},
   prompt: `You are an expert cardiologist providing personalized risk assessments for heart attack.
 
-  Analyze the provided medical history, lifestyle factors, and daily health logs to determine the user's risk level, identify contributing risk factors, and provide personalized recommendations for risk reduction.
+  Analyze the provided user information to determine the user's risk level, identify contributing risk factors, and provide personalized recommendations for risk reduction.
 
+  User Age: {{{age}}}
+  User Gender: {{{gender}}}
   Medical History: {{{medicalHistory}}}
+  Other Medical Issues: {{{otherMedicalIssues}}}
   Lifestyle Factors: {{{lifestyleFactors}}}
   Daily Health Logs: {{{dailyLogs}}}
 
